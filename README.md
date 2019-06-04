@@ -30,6 +30,9 @@ docker build -f src/main/docker/Dockerfile.native -t <image tag> .
 ### Exposing services
 
 ### Redeploying applications
+```
+kubectl rolling-update <your deployment name>
+```
 
 ### ConfigMap
 
