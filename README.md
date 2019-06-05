@@ -77,17 +77,54 @@ For one-container deployments, created with kubectl run, `container-name` is the
 
 ### ConfigMap
 
-### How to start over
+### How to get rid of it
+```
+minikube delete
+```
 
+## Web UI
+Minikube doesn't come with a web console installed but it's possible to add one
 
-## A Web UI
-Minikube doesn't come with a web console installed but it's possible to create one.
-
+### Installation
 To add it to your installation, run:
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
 ```
 
+Optionally, you can verify if the dashboard pod is started in the `kube-system` namespace:
+```
+kubectl get pod -n kube-system
+```
+
+To be able to access the dashboard, you need to proxy kubernets to localhost:
+```
+kubectl proxy
+```
+
+### Access
 A dedicated user is required to access the UI (a.k.a. Dashboard).
 
 To create a user run:
+```
+kubectl apply -f https://raw.githubusercontent.com/michalszynkiewicz/simple-kubernetes-cheat-sheet/master/1-create-dashboard-user.yml
+```
+
+And to create a role for the user:
+```
+kubectl apply -f https://raw.githubusercontent.com/michalszynkiewicz/simple-kubernetes-cheat-sheet/master/2-create-dashboard-user-role.yml
+```
+
+Then, take the token for `admin-user` from the output of:
+```
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+```
+
+Now, finally, you can go with your browser to:
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login, select `Token` and paste the token from the output of the above command.
+
+
+That's it, you should be able to access the web console now.
+
+
+### More info
+https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
