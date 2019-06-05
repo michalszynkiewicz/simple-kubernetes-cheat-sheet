@@ -48,8 +48,10 @@ minikube service <deployment name> --url
 
 ### Redeploying applications
 ```
-kubectl set image deployments/<deployment name> <deployment name>=<image name>/<version>
+kubectl set image deployments/<deployment name> <container name>=<image name>/<version>
 ```
+
+For one-container deployments, created with kubectl run, `container-name` is the same as `deployment-name`
 
 ### ConfigMap
 
