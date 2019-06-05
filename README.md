@@ -82,3 +82,12 @@ For one-container deployments, created with kubectl run, `container-name` is the
 
 ## A Web UI
 Minikube doesn't come with a web console installed but it's possible to create one.
+
+To add it to your installation, run:
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
+```
+
+A dedicated user is required to access the UI (a.k.a. Dashboard).
+
+To create a user run:
