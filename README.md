@@ -103,6 +103,17 @@ For one-container deployments, created with kubectl run, `container-name` is the
 minikube delete
 ```
 
+### Troubleshooting
+[Kubectl cheatsheet on viewing resources](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#viewing-finding-resources)
+
+A few helpful commands:
+```
+kubectl get pod [-w] # list pods running in the current namespace, use -w to watch for changes
+kubectl describe pod <pod name> # get more information about a pod
+kubectl logs -f <pod name> # get logs of the pod
+```
+
+
 ## Web UI
 Minikube doesn't come with a web console installed but it's possible to add one
 
