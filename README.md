@@ -87,11 +87,22 @@ minikube service <deployment name> --url
 
 
 ##### Testing in-container access
-TODO: exec some container and a request within
+If you'd like to see what's going on inside Kubernetes, e.g. check what's accessible from it, you can create a pod
+and access bash in it, e.g.:
+```
+kubectl run my-shell --rm -i --tty --image registry.access.redhat.com/ubi8/ubi-minimal -- bash
+```
 
 ### Redeploying applications
+
+To deploy a newer version of an application:
 ```
 kubectl set image deployments/<deployment name> <container name>=<image name>:<version>
+```
+
+To restart an application (effectively, delete the pod and let Kubernetes create a new one):
+```
+kubectl delete pod <pod-name>
 ```
 
 For one-container deployments, created with kubectl run, `container-name` is the same as `deployment-name`
