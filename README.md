@@ -40,7 +40,7 @@ minikube start --cpus 2 --memory 8096
 ## Building a docker image
 A generated Quarkus application provides Dockerfiles with building instructions in `src/main/docker`.
 To use it:
-1. build your application with Maven (add `-Dnative` to build the native binary)
+1. build your application with Maven (add `-Dnative -Dnative-image.docker-build=true` to build the native binary)
 ```
 mvn clean package
 ```
@@ -91,7 +91,7 @@ TODO: exec some container and a request within
 
 ### Redeploying applications
 ```
-kubectl set image deployments/<deployment name> <container name>=<image name>/<version>
+kubectl set image deployments/<deployment name> <container name>=<image name>:<version>
 ```
 
 For one-container deployments, created with kubectl run, `container-name` is the same as `deployment-name`
