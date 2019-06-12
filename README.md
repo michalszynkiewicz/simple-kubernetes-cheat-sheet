@@ -40,7 +40,7 @@ minikube start --cpus 2 --memory 8096
 ## Building a docker image
 A generated Quarkus application provides Dockerfiles with building instructions in `src/main/docker`.
 To use it:
-1. build your application with
+1. build your application with Maven (add `-Dnative` to build the native binary)
 ```
 mvn clean package
 ```
