@@ -3,18 +3,18 @@ The instructions assume the user runs on Linux
 
 ## Installing minikube
 
-Download it:
+Download it. On Linux:
 ```
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 \
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube
 ```
+
+For instructions for the other operating systems and more information see https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 Add it to the `$PATH` and start by:
 ```
 minikube start --cpus 2 --memory 8096
 ```
-
-More info: https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 ## Building a docker image
 A generated Quarkus application provides Dockerfiles with building instructions in `src/main/docker`.
