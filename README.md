@@ -97,6 +97,13 @@ kubectl set image deployments/<deployment name> <container name>=<image name>:<v
 For one-container deployments, created with kubectl run, `container-name` is the same as `deployment-name`
 
 ### ConfigMap
+You can use `ConfigMap` to propagate configuration to a kubernetes cluster.
+
+To create it, create a YAML file that defines the `ConfigMap` and apply it:
+```
+kubectl apply -f config-map.yaml
+```
+To update it, use `kubectl replace` instead of `apply`.
 
 ### How to get rid of it
 ```
