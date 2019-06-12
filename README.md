@@ -1,15 +1,36 @@
 # Kubernetes cheat sheet for Quarkus workshop
 The instructions assume the user runs on Linux
 
+
+## Installing kubectl
+
+Download it:
+```
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+```
+
+And add to `$PATH`.
+
 ## Installing minikube
 
-Download it. On Linux:
+Install KVM or Virtualbox.
+E.g., if you choose KVM and you're on Fedora, run:
+```
+sudo dnf install qemu-kvm
+```
+
+Download it:
 ```
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube
 ```
 
 For instructions for the other operating systems and more information see https://kubernetes.io/docs/tasks/tools/install-minikube/
+
+If you wish to run minikube on KVM, configure it as follows:
+```
+minikube config set vm-driver kvm2
+```
 
 Add it to the `$PATH` and start by:
 ```
