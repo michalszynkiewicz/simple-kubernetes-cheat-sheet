@@ -50,11 +50,11 @@ eval $(minikube docker-env)
 ```
 3. build the image for hotspot
 ```
-docker build -f src/main/docker/Dockerfile.jvm -t <image tag>:version .
+docker build -f src/main/docker/Dockerfile.jvm -t <image tag>:<version> .
 ```
 or for the native binary
 ```
-docker build -f src/main/docker/Dockerfile.native -t <image tag>:version .
+docker build -f src/main/docker/Dockerfile.native -t <image tag>:<version> .
 ```
 
 ## Working with Kubernetes
