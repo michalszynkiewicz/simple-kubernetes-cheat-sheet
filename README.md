@@ -38,7 +38,7 @@ minikube start --cpus 2 --memory 8096
 ```
 
 ## Building a docker image
-A generated Quarkus application provides Dockerfiles with building instructions in `src/main/docker`.
+A generated Quarkus application provides Dockerfiles, with building instructions, in `src/main/docker`.
 To use it:
 1. build your application with Maven (add `-Dnative -Dnative-image.docker-build=true` to build the native binary)
 ```
@@ -72,25 +72,28 @@ The element of the Kubernetes ecosystem that is responsible for exposing applica
 kubectl expose deployment <deployment name>
 ```
 
-#### Expose a service externally, one can use NodePort.
-This is the simplest yet the ugliest solution:
+#### Expose a service externally
+This is the simplest yet the ugliest solution is to create a NodePort service:
 ```
 kubectl expose deployment <deployment name> --type=NodePort
 ```
 
-#### Access a service exposed with NodePort use the following URL:
+#### Access a service exposed with NodePort
+You can use minikube to get a URL of a service exposed with NodePort:
 ```
 minikube service <deployment name> --url
 ```
 
 #### Access a service from within the cluster
-
+In the cluster the services can be addressed by their name.
 
 ##### Testing in-container access
 If you'd like to see what's going on inside Kubernetes, e.g. check what's accessible from it, you can create a pod
 and access bash in it, e.g.:
 ```
 kubectl run my-shell --rm -i --tty --image registry.access.redhat.com/ubi8/ubi-minimal -- bash
+
+bash-4.4# curl <service-name>:<service-port>/path
 ```
 
 ### Redeploying applications
