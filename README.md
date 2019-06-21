@@ -131,6 +131,8 @@ A few helpful commands:
 kubectl get pod [-w] # list pods running in the current namespace, use -w to watch for changes
 kubectl describe pod <pod name> # get more information about a pod
 kubectl logs -f <pod name> # get logs of the pod
+
+kubectl exec -it <pod-name> -- /bin/sh # start an interactive shell in a running container/pod
 ```
 
 [Kubectl cheatsheet on viewing resources](https://kubernetes.io/docs/reference/kubectl/cheatsheet/#viewing-finding-resources)
