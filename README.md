@@ -110,6 +110,14 @@ kubectl delete pod <pod-name>
 
 For one-container deployments, created with kubectl run, `container-name` is the same as `deployment-name`
 
+### Forwarding local ports to kubernetes
+E.g. to test Jaeger without deploying it in the cluster, you can forward its port to the cluster:
+```
+ssh -i $(minikube ssh-key) docker@$(minikube ip) -R 14268:localhost:14268 -o "UserKnownHostsFile /dev/null"
+```
+
+The known hosts for the command are not stored because the host fingerprint may change on minikube's restart.
+
 ### ConfigMap
 You can use `ConfigMap` to propagate configuration to a kubernetes cluster.
 
