@@ -118,6 +118,8 @@ ssh -i $(minikube ssh-key) docker@$(minikube ip) -R 14268:localhost:14268 -o "Us
 
 The known hosts for the command are not stored because the host fingerprint may change on minikube's restart.
 
+With it, you can access the exposed port at `minikube:<port>` (`minikube:14268` in the example above)
+
 ### ConfigMap
 You can use `ConfigMap` to propagate configuration to a kubernetes cluster.
 
