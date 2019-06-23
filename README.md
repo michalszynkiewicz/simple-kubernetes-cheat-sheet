@@ -19,7 +19,7 @@ E.g., if you choose KVM and you're on Fedora, run:
 sudo dnf install qemu-kvm
 ```
 
-Download it:
+Download Minikube:
 ```
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube
